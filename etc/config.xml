@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <carriers>
+            <colissimosimplicite>
+                <!-- Carrier configuration -->
+                <model>LaPoste\ColissimoSimplicite\Model\Carrier</model>
+                <active>1</active>
+                <title>La Poste</title>
+                <name>Colissimo</name>
+                <name_home>Colissimo - Domicile</name_home>
+                <name_pickup>Colissimo - Point de retrait</name_pickup>
+                <name_post_office>Colissimo - Bureau de poste</name_post_office>
+                <redirect_message>Vous allez voir apparaitre les options Colissimo dans un instant...</redirect_message>
+                <gateway_url_web>https://ws.colissimo.fr/pudo-fo-frame/storeCall.do</gateway_url_web>
+                <gateway_url_mobile>https://ws-mobile.colissimo.fr</gateway_url_mobile>
+                <gateway_status_enabled>1</gateway_status_enabled>
+                <gateway_status_url_web>https://ws.colissimo.fr/supervision-pudo-frame/supervision.jsp</gateway_status_url_web>
+                <gateway_status_url_mobile>https://ws-mobile.colissimo.fr/supervision</gateway_status_url_mobile>
+                <amount_basetype>fixed</amount_basetype>
+                <amount_basetype_pickup>fixed</amount_basetype_pickup>
+                <tax_display>2</tax_display>
+                <max_weight>30</max_weight>
+                <sallowspecific>1</sallowspecific>
+                <specificcountry>FR</specificcountry>
+
+                <!-- Mapping between Magento prefixes (keys) and Colissimo prefixes (values), JSON format -->
+                <prefix_mapping><![CDATA[{"Mr": "MR", "Ms": "MME", "Mrs": "MME"}]]></prefix_mapping>
+
+                <!-- Breakpoint width for mobile devices -->
+                <width_breakpoint>768px</width_breakpoint>
+
+                <!-- Redirect URL used when an error occurs -->
+                <redirect_url_on_error>checkout/cart</redirect_url_on_error>
+
+                <!-- Codes of the pickup points -->
+                <pickup_codes>
+                    <A2P/> <!-- FR -->
+                    <CMT/> <!-- BE -->
+                </pickup_codes>
+
+                <!-- Codes of the post offices -->
+                <post_office_codes>
+                    <BPR/> <!-- FR -->
+                    <CIT/> <!-- BE -->
+                    <ACP/> <!-- BE -->
+                    <CDI/> <!-- BE -->
+                    <BDP/> <!-- BE -->
+                </post_office_codes>
+            </colissimosimplicite>
+        </carriers>
+    </default>
+</config>

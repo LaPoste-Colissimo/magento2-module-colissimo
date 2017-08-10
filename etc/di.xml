@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="LaPoste\ColissimoSimplicite\Api\Data\TransactionInterface" type="LaPoste\ColissimoSimplicite\Model\Transaction"/>
+
+    <type name="Magento\Checkout\Model\PaymentInformationManagement">
+        <plugin name="colissimosimplicite-payment-information-management-plugin" type="LaPoste\ColissimoSimplicite\Plugin\PaymentInformationManagementPlugin"/>
+    </type>
+
+    <type name="Magento\Quote\Model\Quote">
+        <plugin name="colissimosimplicite-quote-plugin" type="LaPoste\ColissimoSimplicite\Plugin\QuotePlugin"/>
+    </type>
+</config>

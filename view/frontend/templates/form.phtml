@@ -1,0 +1,27 @@
+<?php
+/** @var \LaPoste\ColissimoSimplicite\Block\Form $block */
+$transaction = $block->getTransaction();
+$redirectMessage = $block->getRedirectMessage();
+?>
+
+<div id="colissimosimplicite-form-container">
+    <?php if ($redirectMessage): ?>
+    <div>
+        <h3><?= $redirectMessage; ?></h3>
+    </div>
+    <?php endif; ?>
+    <form name="colissimosimpliciteform" action="<?= $block->getFormActionUrl(); ?>" method="post">
+        <?php foreach ($transaction->getTransactionData() as $field => $value): ?>
+            <?php // Ignore empty fields (it is not mandatory but it means less data to transfer) ?>
+            <?php if ($field !== 'trReturnUrlKo' && $value !== null && $value !== '' && $value !== false): ?>
+                <input type="hidden" name="<?= $field; ?>" value="<?= htmlspecialchars($value); ?>"/>
+            <?php endif; ?>
+        <?php endforeach; ?>
+
+        <input type="hidden" name="signature" value="<?= htmlspecialchars($transaction->getSignature()); ?>"/>
+    </form>
+
+    <script type="text/javascript">
+        document.colissimosimpliciteform.submit();
+    </script>
+</div>

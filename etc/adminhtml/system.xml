@@ -1,0 +1,138 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="carriers">
+            <group id="colissimosimplicite" translate="label" type="text" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Colissimo Simplicité</label>
+
+                <field id="active" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+
+                <field id="title" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Carrier Name</label>
+                </field>
+
+                <field id="name" translate="label comment" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Shipping Method Name</label>
+                    <comment>Shipping method name which is displayed at the "shipping step" during checkout.</comment>
+                </field>
+
+                <field id="name_home" translate="label comment" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Shipping Method Name (Home Delivery)</label>
+                    <comment>Shipping method name if the user chooses home delivery on the Colissimo gateway.</comment>
+                </field>
+
+                <field id="name_pickup" translate="label comment" type="text" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Shipping Method Name (Pickup)</label>
+                    <comment>Shipping method name if the user chooses pickup mode on the Colissimo gateway.</comment>
+                </field>
+
+                <field id="name_post_office" translate="label comment" type="text" sortOrder="70" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Shipping Method Name (Post Office)</label>
+                    <comment>Shipping method name if the user chooses delivery in post office on the Colissimo gateway.</comment>
+                </field>
+
+                <field id="redirect_message" translate="label" type="textarea" sortOrder="80" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Message Before Redirection to the Colissimo Gateway</label>
+                </field>
+
+                <field id="account" translate="label" type="text" sortOrder="90" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Colissimo FO Login</label>
+                </field>
+
+                <field id="encryption_key" translate="label" type="text" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Encryption Key</label>
+                </field>
+
+                <field id="gateway_url_web" translate="label" type="text" sortOrder="110" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Web Gateway URL</label>
+                    <comment>Customers are redirected to this URL when using a computer.</comment>
+                </field>
+
+                <field id="gateway_url_mobile" translate="label" type="text" sortOrder="120" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Mobile Gateway URL</label>
+                    <comment>Customers are redirected to this URL when using a mobile device.</comment>
+                </field>
+
+                <field id="gateway_status_enabled" translate="label" type="select" sortOrder="130" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Enable Colissimo Gateway Availability Check</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+
+                <field id="gateway_status_url_web" translate="label" type="text" sortOrder="140" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>URL to Check Colissimo Web Gateway Availability</label>
+                    <depends>
+                        <field id="gateway_status_enabled">1</field>
+                    </depends>
+                </field>
+
+                <field id="gateway_status_url_mobile" translate="label" type="text" sortOrder="150" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>URL to Check Colissimo Mobile Gateway Availability</label>
+                    <depends>
+                        <field id="gateway_status_enabled">1</field>
+                    </depends>
+                </field>
+
+                <field id="amount_basetype" translate="label" type="select" sortOrder="160" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Shipping Price Type</label>
+                    <source_model>LaPoste\ColissimoSimplicite\Model\System\Config\Source\AmountBaseType</source_model>
+                </field>
+
+                <field id="amount_calculation" translate="label comment" type="text" sortOrder="170" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Shipping Price Calculation</label>
+                    <comment><![CDATA[This is the default shipping cost for all Colissimo delivery mode in France.<br />If <strong>fixed price</strong>, indicate price excluding tax (without currency) ;<br />If <strong>per weight</strong>, indicate :<br />{"weight in kg": "price1", "weight in kg", "price2", ...}<br />The price is used only for a weight superior or equal.<br />Example of price conditions according to the weight :<br/>{"0": "2.90", "0.5": "4.50", "5": "8", "10": "14"}<br />If <strong>per amount</strong>, indicate :<br />{"amount": "price1", "amount", "price2", ...}<br />The price is used only for a total amount superior or equal.<br />Example of price conditions according to the quote amount :<br/>{"0": "2.90", "0.5": "4.50", "5": "8", "10": "14"}]]></comment>
+                </field>
+
+                <field id="amount_basetype_pickup" translate="label" type="select" sortOrder="180" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Shipping Price Type for Pickup</label>
+                    <source_model>LaPoste\ColissimoSimplicite\Model\System\Config\Source\AmountBaseType</source_model>
+                </field>
+
+                <field id="amount_calculation_pickup" translate="label comment" type="text" sortOrder="190" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Shipping Price Calculation for Pickup</label>
+                    <comment><![CDATA[This the shipping cost for pickup delivery method.<br />The operation is identical to the parameter "Shipping cost calculation method".<br />Please keep empty if the pickup method does not need specific price.]]></comment>
+                </field>
+
+                <field id="tax_display" translate="label" type="select" sortOrder="200" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Display Prices on the Colissimo Gateway</label>
+                    <source_model>LaPoste\ColissimoSimplicite\Model\System\Config\Source\Tax</source_model>
+                </field>
+
+                <field id="min_quote_price_for_free" translate="label" type="text" sortOrder="210" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Minimum Price for Free Shipping</label>
+                </field>
+
+                <field id="min_order_total" translate="label" type="text" sortOrder="220" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Minimum Order Amount</label>
+                </field>
+
+                <field id="max_order_total" translate="label" type="text" sortOrder="230" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Maximum Order Amount</label>
+                </field>
+
+                <field id="max_weight" translate="label comment" type="text" sortOrder="240" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Weight Limit</label>
+                    <comment>The Colissimo method will not be available if the order weight is over the weight limit.</comment>
+                </field>
+
+                <field id="sallowspecific" translate="label" type="select" sortOrder="250" showInDefault="1" showInWebsite="1" showInStore="0" canRestore="1">
+                    <label>Ship to Applicable Countries</label>
+                    <frontend_class>shipping-applicable-country</frontend_class>
+                    <source_model>Magento\Shipping\Model\Config\Source\Allspecificcountries</source_model>
+                </field>
+
+                <field id="specificcountry" translate="label comment" type="multiselect" sortOrder="260" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Ship to Specific Countries</label>
+                    <source_model>Magento\Directory\Model\Config\Source\Country</source_model>
+                    <can_be_empty>1</can_be_empty>
+                </field>
+
+                <field id="sort_order" translate="label" type="text" sortOrder="270" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Sort Order</label>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>
