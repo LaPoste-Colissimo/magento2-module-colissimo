@@ -14,7 +14,6 @@ use LaPoste\ColissimoSimplicite\Helper\Config as ConfigHelper;
 use Magento\Framework\App\CacheInterface;
 use Magento\Framework\App\Helper\AbstractHelper;
 use Magento\Framework\App\Helper\Context;
-use Psr\Log\LoggerInterface;
 
 /**
  * Gateway helper.
@@ -23,11 +22,6 @@ use Psr\Log\LoggerInterface;
  */
 class Gateway extends AbstractHelper
 {
-    /**
-     * @var LoggerInterface
-     */
-    protected $logger;
-
     /**
      * @var CacheInterface
      */
@@ -49,18 +43,16 @@ class Gateway extends AbstractHelper
     protected $mobileGatewayAvailable;
 
     /**
-     * @param LoggerInterface $logger
+     * @param Context $context
      * @param CacheInterface $cache
      * @param ConfigHelper $configHelper
      */
     public function __construct(
         Context $context,
-        LoggerInterface $logger,
         CacheInterface $cache,
         ConfigHelper $configHelper
     ) {
         parent::__construct($context);
-        $this->logger = $logger;
         $this->cache = $cache;
         $this->configHelper = $configHelper;
     }
@@ -135,7 +127,7 @@ class Gateway extends AbstractHelper
             $output = curl_exec($curlHandle);
             $available = strpos($output, '[OK]') !== false;
         } catch (\Exception $e) {
-            $this->logger->alert($e->getMessage());
+            $this->_logger->alert($e->getMessage());
             $available = false;
         }
         curl_close($curlHandle);
