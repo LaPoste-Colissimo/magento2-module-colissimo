@@ -37,7 +37,10 @@ define(
                     var shippingAddress = createShippingAddress(window.checkoutConfig.colissimoSimpliciteAddress);
 
                     // Prevent the address from being displayed in the address list on the shipping step
-                    shippingAddress.isColissimoSimplicite = true;
+                    if (shippingAddress.extension_attributes === undefined) {
+                        shippingAddress.extension_attributes = {};
+                    }
+                    shippingAddress.extension_attributes.isColissimoSimplicite = true;
 
                     // Use the address returned by Colissimo as the shipping address
                     selectShippingAddress(shippingAddress);

@@ -2,16 +2,16 @@
     "name": "laposte-colissimo/magento2-module-colissimo",
     "type": "magento2-module",
     "description": "Magento 2 Colissimo Simplicité module",
-    "version": "1.0.0",
+    "version": "2.0.0",
     "require": {
-        "magento/framework": ">=100.1.0",
-        "magento/module-checkout": ">=100.1.0",
-        "magento/module-customer": ">=100.1.0",
-        "magento/module-quote": ">=100.1.0",
-        "magento/module-sales": ">=100.1.0",
-        "magento/module-shipping": ">=100.1.0",
-        "magento/module-store": ">=100.1.0",
-        "magento/module-tax": ">=100.1.0"
+        "magento/framework": ">=102.0.1",
+        "magento/module-checkout": ">=100.3.1",
+        "magento/module-customer": ">=102.0.1",
+        "magento/module-quote": ">=101.1.1",
+        "magento/module-sales": ">=102.0.1",
+        "magento/module-shipping": ">=100.3.1",
+        "magento/module-store": ">=101.0.1",
+        "magento/module-tax": ">=100.3.1"
     },
     "license": "OSL-3.0",
     "authors": [
