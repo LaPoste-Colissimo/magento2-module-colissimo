@@ -4,7 +4,7 @@ Colissimo Simplicité Module
 Requirements
 ------------
 
-* Magento >= 2.1 (CE && EE)
+* Magento >= 2.3 (CE && EE)
 * PHP [cURL extension](http://php.net/manual/en/book.curl.php)
 * An active [Colissimo account](https://www.colissimo.entreprise.laposte.fr).
 
